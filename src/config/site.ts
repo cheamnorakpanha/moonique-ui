@@ -4,12 +4,16 @@ type Contact = {
   hours?: string; pickup?: string; delivery?: string; map?: string;
 };
 
-const contact: Contact = { telegram: process.env.NEXT_PUBLIC_TELEGRAM_USERNAME };
+const telegramEnabled = process.env.NEXT_PUBLIC_TELEGRAM_ENABLED === "true";
+const contact: Contact = {
+  telegram: telegramEnabled ? process.env.NEXT_PUBLIC_TELEGRAM_USERNAME : undefined,
+};
 
 export const site = {
   name: "Moonique Shop",
   url: process.env.NEXT_PUBLIC_SITE_URL || "",
   khrPerUsd: 4000,
+  telegramEnabled,
   contact,
   featured: ["fried-spring-roll", "meatball", "sausage"] as readonly string[],
   reviews: [] as readonly Review[],

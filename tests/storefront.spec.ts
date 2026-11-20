@@ -1,10 +1,18 @@
 import { expect, test } from "@playwright/test";
 import { createServer } from "node:http";
 import type { AddressInfo } from "node:net";
+import { telegramUrl } from "../src/lib/shop";
 
-test("search, categories, details, persistent cart and Telegram summary handoff", async ({ page, context }) => {
+test("search, categories, details, persistent cart and order summary handoff", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto("/");
+  const telegramEnabled = process.env.NEXT_PUBLIC_TELEGRAM_ENABLED === "true";
+  const telegram = telegramEnabled ? telegramUrl(process.env.NEXT_PUBLIC_TELEGRAM_USERNAME) : undefined;
+  await expect(page.getByRole("link", { name: "Ask about a gathering" })).toHaveAttribute("href", telegram ?? "#contact");
+  if (!telegramEnabled) {
+    await expect(page.locator("#how").getByText("Generate an order summary and copy it for your records.")).toBeVisible();
+    await expect(page.locator('a[href^="https://t.me/"]')).toHaveCount(0);
+  }
   const main = page.getByRole("main");
   await page.getByRole("navigation", { name: "Navigation" }).getByRole("link", { name: "Our Menu" }).click();
   await expect(page).toHaveURL(/#menu$/);
@@ -43,11 +51,13 @@ test("search, categories, details, persistent cart and Telegram summary handoff"
   await cart.getByLabel("Delivery address (optional)").fill("Example address");
   await cart.getByRole("button", { name: "Generate order summary" }).click();
   await expect(cart.getByRole("textbox", { name: "Order summary" })).toHaveValue(/Deep-fried Spring Roll × 2[\s\S]+Address: Example address/);
-  const telegram = process.env.NEXT_PUBLIC_TELEGRAM_USERNAME;
   if (telegram) {
-    await expect(cart.getByRole("link", { name: "Open Telegram" })).toHaveAttribute("href", `https://t.me/${telegram.replace(/^@/, "")}`);
-  } else {
+    await expect(cart.getByRole("link", { name: "Open Telegram" })).toHaveAttribute("href", telegram);
+  } else if (telegramEnabled) {
     await expect(cart.getByText("Moonique Shop’s Telegram contact is awaiting confirmation.", { exact: false })).toBeVisible();
+  } else {
+    await expect(cart.getByText(/telegram/i)).toHaveCount(0);
+    await expect(cart.getByRole("link", { name: "Open Telegram" })).toHaveCount(0);
   }
   await cart.getByRole("button", { name: "Copy order" }).click();
   await expect(cart.getByText("Order summary copied.")).toBeVisible();

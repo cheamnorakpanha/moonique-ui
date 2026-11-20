@@ -58,6 +58,7 @@ export function Storefront() {
   const pwa = usePwa();
   const reducedMotion = useReducedMotion();
   const t = dictionaries[language];
+  const telegram = telegramUrl(site.contact.telegram);
   const count = Object.values(items).reduce((sum, quantity) => sum + quantity, 0);
 
   useEffect(() => { void useCart.persist?.rehydrate(); }, []);
@@ -136,7 +137,7 @@ export function Storefront() {
         <div className="wrap">
           <div className="section-heading centered"><p className="eyebrow ornamental"><span />{t.order}<span /></p><h2>{t.how}</h2></div>
           <ol className="step-grid">
-            {t.steps.map(([title, body], index) => {
+            {[...t.steps, telegram ? t.telegramStep : t.summaryStep].map(([title, body], index) => {
               const Icon = stepIcons[index];
               return <m.li key={index} initial={false} whileInView={reducedMotion ? undefined : { y: [6, 0] }} viewport={{ once: true }} transition={{ duration: 0.25 }}>
                 <span className="step-icon"><Icon size={24} strokeWidth={1.6} aria-hidden /><span>{index + 1}</span></span>
@@ -155,7 +156,7 @@ export function Storefront() {
           <Sparkles size={29} strokeWidth={1.45} aria-hidden />
           <p className="eyebrow">{t.occasions}</p>
           <h2>{t.occasionsTitle}</h2><p>{t.occasionsBody}</p>
-          <a className="button button--hero-outline" href={pwa.online ? telegramUrl(site.contact.telegram) || "#contact" : "#contact"}>{t.inquire}</a>
+          <a className="button button--hero-outline" href={pwa.online && telegram ? telegram : "#contact"}>{t.inquire}</a>
         </div>
       </section>
 

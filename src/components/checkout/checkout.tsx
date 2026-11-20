@@ -52,7 +52,7 @@ export function Checkout({ t, items, currency, online }: { t: Dictionary; items:
   }
 
   return <div className="checkout">
-    {!telegram && <p className="notice">{t.telegramMissing}</p>}
+    {site.telegramEnabled && !telegram && <p className="notice">{t.telegramMissing}</p>}
     <form ref={form} className="checkout-form" onSubmit={generate} noValidate>
       <label className="field">{t.customer}
         <input name="name" autoComplete="name" required maxLength={80} value={customer.name}

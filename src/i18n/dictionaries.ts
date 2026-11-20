@@ -24,8 +24,9 @@ const en = {
   steps: [
     ["Explore Our Menu", "Browse our homemade Cambodian foods and discover your favorites."],
     ["Add Your Favorites", "Choose what you’d like and adjust quantities in your cart."],
-    ["Place Your Order", "Prepare your order and contact Moonique Shop on Telegram for confirmation."],
   ],
+  summaryStep: ["Prepare Your Order", "Generate an order summary and copy it for your records."],
+  telegramStep: ["Place Your Order", "Prepare your order and contact Moonique Shop on Telegram for confirmation."],
   occasions: "Special Occasions", occasionsTitle: "Made for Moments Worth Sharing.",
   occasionsBody: "Planning a family gathering, Khmer celebration, or group meal? Get in touch to discuss what you’d like to share.",
   inquire: "Ask about a gathering", reviews: "Customer Reviews", contactTitle: "Get in Touch",
@@ -77,8 +78,9 @@ const km: typeof en = {
   steps: [
     ["មើលមុខម្ហូប", "ស្វែងរកមុខម្ហូបខ្មែរដែលអ្នកពេញចិត្ត។"],
     ["បន្ថែមមុខម្ហូប", "ជ្រើសមុខម្ហូប ហើយកែចំនួនក្នុងកន្ត្រក។"],
-    ["បញ្ជាទិញ", "រៀបចំការបញ្ជាទិញ និងទាក់ទង Moonique Shop តាម Telegram ដើម្បីបញ្ជាក់។"],
   ],
+  summaryStep: ["រៀបចំការបញ្ជាទិញ", "បង្កើតសេចក្ដីសង្ខេបការបញ្ជាទិញ រួចចម្លងទុក។"],
+  telegramStep: ["បញ្ជាទិញ", "រៀបចំការបញ្ជាទិញ និងទាក់ទង Moonique Shop តាម Telegram ដើម្បីបញ្ជាក់។"],
   occasions: "ឱកាសពិសេស", occasionsTitle: "សម្រាប់ឱកាសដ៏មានន័យ",
   occasionsBody: "មានគម្រោងជួបជុំគ្រួសារ បុណ្យប្រពៃណីខ្មែរ ឬពិសាអាហារជាក្រុមមែនទេ? សូមទាក់ទងយើងដើម្បីពិភាក្សា។",
   inquire: "សាកសួរអំពីការជួបជុំ", reviews: "មតិអតិថិជន", contactTitle: "ទំនាក់ទំនងមកយើង",

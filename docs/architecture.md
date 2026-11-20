@@ -8,7 +8,7 @@ The App Router serves a statically prerendered homepage and offline page. Layout
 
 Configure products in `src/data/products.ts`. Use stable IDs and integer USD cents. KHR amounts are rounded to the nearest riel per line and the displayed subtotal sums those rounded lines. Set confirmed unavailable products to `sold-out`. Unknown-price lines remain in an inquiry and are excluded from numeric totals. Availability and final price are confirmed by the shop.
 
-The local cart stores product IDs and validated quantities. Customer name, phone, delivery address and notes live only in the checkout form. Generating a summary enables clipboard or supported native sharing. When a valid Telegram contact is configured, the Open Telegram action navigates to that contact. The customer pastes the summary and sends it manually. Closing checkout clears the form.
+The local cart stores product IDs and validated quantities. Customer name, phone, delivery address and notes live only in the checkout form. Generating a summary enables clipboard or supported native sharing. Telegram is off by default. When enabled with a valid contact, the Open Telegram action navigates to that contact so the customer can paste and send the summary manually. Closing checkout clears the form.
 
 ## PWA
 

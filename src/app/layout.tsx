@@ -21,7 +21,7 @@ const body = localFont({
 });
 
 const url = publicSiteUrl();
-const description = "Discover Moonique Shop’s traditional Cambodian homemade foods, snacks and desserts. Browse the menu and prepare your order on Telegram.";
+const description = "Discover Moonique Shop’s traditional Cambodian homemade foods, snacks and desserts. Browse the menu and prepare an order summary.";
 
 export const metadata: Metadata = {
   metadataBase: url ? new URL(url) : undefined,
