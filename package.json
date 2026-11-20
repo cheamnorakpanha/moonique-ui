@@ -1,0 +1,41 @@
+{
+  "name": "moonique-shop",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/tests/shop.test.js",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/cormorant-garamond": "latest",
+    "@fontsource-variable/dm-sans": "latest",
+    "@fontsource-variable/noto-sans-khmer": "latest",
+    "@radix-ui/react-dialog": "latest",
+    "lucide-react": "latest",
+    "motion": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "zustand": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "latest",
+    "postcss": "^8",
+    "tailwindcss": "^4",
+    "typescript": "^5.9"
+  }
+}
