@@ -18,4 +18,4 @@ Test on localhost or HTTPS after a production build. Wait for the page to be con
 
 ## Dependency management
 
-The workspace pins pnpm and requires review of dependency lifecycle scripts. Optional native packages resolve from the lockfile and their lifecycle scripts are skipped. ESLint 9 currently matches all peer ranges in Next.js’s ESLint configuration. Run the audit following dependency changes and use frozen installs in CI.
+The workspace pins pnpm and requires review of dependency lifecycle scripts. Optional native packages resolve from the lockfile and their lifecycle scripts are skipped. ESLint 9 currently matches all peer ranges in Next.js’s ESLint configuration. Run the audit following dependency changes and use frozen installs for reproducible builds.

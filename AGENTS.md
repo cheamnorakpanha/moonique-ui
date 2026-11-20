@@ -6,7 +6,7 @@ Read this file first, then the applicable nested AGENTS.md. Nested instructions 
 
 ## Working conventions
 
-- Use pnpm exclusively and retain the pinned package manager and lockfile. Use frozen installs in CI and review dependency changes, lifecycle scripts, and audit findings.
+- Use pnpm exclusively and retain the pinned package manager and lockfile. Use frozen installs for reproducible builds and review dependency changes, lifecycle scripts, and audit findings.
 - Keep route files in src/app, reusable UI in src/components, business settings in src/config, the catalog in src/data, order and currency logic in src/lib, state in src/stores, and UI dictionaries in src/i18n.
 - Use descriptive names, PascalCase for components and types, camelCase for functions, and stable kebab-case product IDs. Prefer typed props, pure domain functions, and small, composable components.
 - Preserve the Modern Artisan and Khmer Heritage visual direction, responsive layout, reduced motion, keyboard navigation, focus visibility, readable contrast, and Khmer typography.
