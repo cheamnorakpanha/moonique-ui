@@ -85,6 +85,14 @@ test("all target widths keep the English and Khmer storefront and overlays withi
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
       expect(overflow, `horizontal overflow at ${width}px in ${language}`).toBe(false);
       if (language === "en" && (width === 390 || width === 1440)) {
+        const images = page.locator("#menu article img");
+        await expect(images).toHaveCount(13);
+        await images.evaluateAll((elements) => {
+          for (const element of elements) (element as HTMLImageElement).loading = "eager";
+        });
+        await expect.poll(() => images.evaluateAll((elements) =>
+          elements.filter((element) => (element as HTMLImageElement).naturalWidth > 0).length,
+        )).toBe(13);
         await page.screenshot({ path: testInfo.outputPath(`storefront-${width}.png`), animations: "disabled" });
       }
     }
