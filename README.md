@@ -18,7 +18,7 @@ The development server defaults to http://localhost:3000.
 - [Business settings](src/config/site.ts) hold the public contact details, fulfillment information, featured product IDs, reviews and manual KHR exchange rate. The starting rate is 4,000 KHR per USD for display and should be confirmed by the shop before configuring prices.
 - [Catalog](src/data/products.ts) holds product names, availability, price in USD cents, photos, descriptions, portions and ingredients. Add verified Khmer names and descriptions there. Unknown prices display **Contact for Price** and contribute no numeric amount to the subtotal.
 - Copy [.env.example](.env.example) to `.env.local` and set `NEXT_PUBLIC_SITE_URL`. Telegram is off by default. To enable it, set `NEXT_PUBLIC_TELEGRAM_ENABLED=true`, enter the verified username or HTTPS `t.me` link in `NEXT_PUBLIC_TELEGRAM_USERNAME`, and rebuild. These settings are public and read at build time.
-- The editorial imagery and three product images are AI-generated illustrations labeled in the storefront. The other products use photo placeholders. Replace these when approved shop photography is available and clear each replaced product’s illustrative flag.
+- The editorial and product images are AI-generated illustrations labeled in the storefront. Replace them when approved shop photography is available and clear each replaced product’s illustrative flag. See the [product imagery notes](docs/product-imagery.md) for the prompt set and references.
 - Add the verified phone, Facebook page, address, location, hours, pickup and delivery details to the business settings. The review section appears when genuine reviews are configured.
 
 ## Verify
